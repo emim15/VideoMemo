@@ -11,5 +11,5 @@ import RealmSwift
 class MemoItem: Object {
     @Persisted var memo: String = ""
     @Persisted var imageURL: String = ""
-//    @Persisted var time: String = ""
+    @Persisted var time: String = ""
 }

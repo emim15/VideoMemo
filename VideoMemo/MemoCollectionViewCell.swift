@@ -18,9 +18,9 @@ class MemoCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func setCell(memo: String, imageURL: String) {
+    func setCell(memo: String, imageURL: String, time: String) {
         memoLabel.text = memo
-        
+        timeLabel.text = time
     }
 
 }

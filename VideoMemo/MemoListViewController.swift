@@ -26,6 +26,12 @@ class MemoListViewController: UIViewController, UICollectionViewDelegate, UIColl
         collectionView.register(UINib(nibName: "MemoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MemoCell")
         items = readItems()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        items = readItems()
+        collectionView.reloadData()
+        print(items)
+    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
@@ -34,8 +40,7 @@ class MemoListViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemoCell", for: indexPath) as! MemoCollectionViewCell
         let item: MemoItem = items[indexPath.row]
-        cell.setCell(memo: item.memo, imageURL: item.imageURL)
-        
+        cell.setCell(memo: item.memo, imageURL: item.imageURL, time: item.time)
         return cell
     }
     

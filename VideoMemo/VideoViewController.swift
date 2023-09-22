@@ -161,7 +161,6 @@ class VideoViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 self.navigationController?.pushViewController(nextView, animated: true)
 
         }
-        
     }
     
 }
