@@ -31,6 +31,7 @@ class NewMemoViewController: UIViewController {
         item.imageURL = setImage(image: image) ?? ""
         createItem(item: item)
         print("pushed")
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     func setImage(image: UIImage?) -> String? {
@@ -44,13 +45,13 @@ class NewMemoViewController: UIViewController {
         var fileURL = documentsDirectoryURL.appendingPathComponent(fileName)
         // UIImageをJPEGデータに変換
         let data = image.jpegData(compressionQuality: 1.0)
-        // 【追加】URLResourceValuesをインスタンス化
-        var values = URLResourceValues()
-        // 【追加】iCloudの自動バックアップから除外する
-        values.isExcludedFromBackup = true
+//        // 【追加】URLResourceValuesをインスタンス化
+//        var values = URLResourceValues()
+//        // 【追加】iCloudの自動バックアップから除外する
+//        values.isExcludedFromBackup = true
         do {
-            // 【追加】iCloudの自動バックアップから除外する設定の登録
-            try fileURL.setResourceValues(values)
+//            // 【追加】iCloudの自動バックアップから除外する設定の登録
+//            try fileURL.setResourceValues(values)
             // JPEGデータをファイルに書き込み
             try data!.write(to: fileURL)
             print(fileName)

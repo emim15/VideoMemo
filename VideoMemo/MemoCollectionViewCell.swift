@@ -17,12 +17,14 @@ class MemoCollectionViewCell: UICollectionViewCell {
     let realm = try! Realm()
     
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
 
     }
     
     func setCell(memo: String, image: UIImage, time: String) {
+//        memoLabel.lineBreakMode = .byWordWrapping
         memoLabel.text = memo
         timeLabel.text = time
         screenShotImageView.image = image
