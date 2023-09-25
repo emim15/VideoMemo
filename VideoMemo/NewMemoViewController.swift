@@ -55,7 +55,8 @@ class NewMemoViewController: UIViewController {
             try data!.write(to: fileURL)
             print(fileName)
         } catch {
-            print("💀エラー")
+            print("保存💀エラー")
+            print(error)
         }
         return fileName
     }

@@ -20,6 +20,9 @@ class VideoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     var itemDuration: Double = 0
     
+    var transferedImage: UIImage? = nil
+    var transferedCaptureTime: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAudioSession()
@@ -150,16 +153,25 @@ class VideoViewController: UIViewController, UIImagePickerControllerDelegate, UI
             generator.requestedTimeToleranceAfter = .zero
             generator.requestedTimeToleranceBefore = .zero
             let duration = avAsset.duration
-
+            
             let time = player.currentItem?.currentTime() ?? CMTime.zero
             let capturedImage = try! generator.copyCGImage(at: time, actualTime: nil)
             let image = UIImage(cgImage: capturedImage)
             
-            let nextView = self.storyboard?.instantiateViewController(withIdentifier: "NewMemo") as! NewMemoViewController
-            nextView.image = image
-            nextView.captureTime = CMTime(value: time.value, timescale: time.timescale).positionalTime
-                self.navigationController?.pushViewController(nextView, animated: true)
-
+            //            let nextView = self.storyboard?.instantiateViewController(withIdentifier: "NewMemo") as! NewMemoViewController
+            //            self.navigationController?.pushViewController(nextView, animated: true)
+            transferedImage = image
+            transferedCaptureTime = CMTime(value: time.value, timescale: time.timescale).positionalTime
+            
+            self.performSegue(withIdentifier: "toNewMemoViewController", sender: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toNewMemoViewController" {
+            let nextView = segue.destination as! NewMemoViewController
+            nextView.image = transferedImage
+            nextView.captureTime = transferedCaptureTime
         }
     }
     

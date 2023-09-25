@@ -6,21 +6,26 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MemoCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var memoLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var screenShotImageView: UIImageView!
-
+    
+    let realm = try! Realm()
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
     }
     
-    func setCell(memo: String, imageURL: String, time: String) {
+    func setCell(memo: String, image: UIImage, time: String) {
         memoLabel.text = memo
         timeLabel.text = time
+        screenShotImageView.image = image
     }
-
+    
 }
