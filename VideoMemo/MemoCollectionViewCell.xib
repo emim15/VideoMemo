@@ -26,7 +26,7 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Bze-Qy-Rxl">
-                        <rect key="frame" x="0.0" y="10" width="229" height="41.333333333333336"/>
+                        <rect key="frame" x="0.0" y="10" width="246" height="41.333333333333336"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5c-Ql-trd">
                                 <rect key="frame" x="0.0" y="0.0" width="35.333333333333336" height="17"/>
@@ -51,7 +51,7 @@
                 <constraint firstItem="Bze-Qy-Rxl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" symbolic="YES" id="KFc-yG-u1d"/>
                 <constraint firstItem="d44-Ac-BzN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="17" id="QKP-ul-sZM"/>
                 <constraint firstAttribute="trailing" secondItem="d44-Ac-BzN" secondAttribute="trailing" symbolic="YES" id="Sox-Tc-NJd"/>
-                <constraint firstItem="d44-Ac-BzN" firstAttribute="leading" secondItem="Bze-Qy-Rxl" secondAttribute="trailing" constant="20" id="oWS-ze-pEL"/>
+                <constraint firstItem="d44-Ac-BzN" firstAttribute="leading" secondItem="Bze-Qy-Rxl" secondAttribute="trailing" constant="3" id="oWS-ze-pEL"/>
             </constraints>
             <size key="customSize" width="393" height="115"/>
             <connections>
