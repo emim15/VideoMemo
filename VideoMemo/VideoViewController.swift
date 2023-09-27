@@ -164,6 +164,15 @@ class VideoViewController: UIViewController, UIImagePickerControllerDelegate, UI
             transferedCaptureTime = CMTime(value: time.value, timescale: time.timescale).positionalTime
             
             self.performSegue(withIdentifier: "toNewMemoViewController", sender: nil)
+        } else {
+            let alert = UIAlertController(title: "動画未選択", message: "動画を選択してください", preferredStyle: .alert)
+            //ここから追加
+            let ok = UIAlertAction(title: "OK", style: .default) { (action) in
+                self.dismiss(animated: true, completion: nil)
+            }
+            alert.addAction(ok)
+            //ここまで追加
+            present(alert, animated: true, completion: nil)
         }
     }
     

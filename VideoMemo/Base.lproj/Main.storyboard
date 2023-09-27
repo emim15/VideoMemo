@@ -201,7 +201,7 @@
                                             <constraint firstAttribute="height" constant="210" id="0KA-Kb-7IU"/>
                                         </constraints>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem i" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oDR-11-e9b">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oDR-11-e9b" customClass="PlaceTextView" customModule="VideoMemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="210" width="375" height="414"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="textColor" systemColor="labelColor"/>
