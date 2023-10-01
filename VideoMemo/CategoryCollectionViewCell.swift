@@ -18,10 +18,10 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
 //  func setCell(title: String, count: Int, color: UIColor)
-    func setCell(title: String, count: Int) {
+    func setCell(title: String, count: Int, color: UIColor) {
         titleLabel.text = title
         countButton.setTitle(String(count), for: .normal)
-//        colorLabel.textColor = color
+        colorLabel.textColor = color
     }
 
 }

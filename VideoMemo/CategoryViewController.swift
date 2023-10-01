@@ -12,6 +12,13 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
 
     @IBOutlet var collectionView: UICollectionView!
     
+    var viewWidth: CGFloat!
+    var viewHeight: CGFloat!
+    var cellWidth: CGFloat!
+    var cellHeight: CGFloat!
+    var cellOffset: CGFloat!
+    var navHeight: CGFloat!
+    
     let realm = try! Realm()
     var categories: [Category] = []
     var selectedCategory: Category? = nil
@@ -19,11 +26,21 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewWidth = view.frame.width
+        viewHeight = view.frame.height
+        navHeight = self.navigationController?.navigationBar.frame.size.height
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCell")
 
         categories = readCategories()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        categories = readCategories()
+        collectionView.reloadData()
+        print(categories)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -39,13 +56,18 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowOffset = CGSize(width: 4, height: 4)
         cell.layer.masksToBounds = false
-        
+
         let category: Category = categories[indexPath.row]
         selectedCategory = category
         let count = readItems().count
         //realmに保存してるdata型をUIcolorに変換する
-//        cell.setCell(title: category.title, count: count, color: <#UIColor#>)
-        cell.setCell(title: category.title, count: count)
+        var categoryColorData: NSData? = category.colorData as NSData
+        var color: UIColor?
+        if let colorData = categoryColorData {
+            color = NSKeyedUnarchiver.unarchiveObject(with: colorData as Data) as? UIColor
+        }
+
+        cell.setCell(title: category.title, count: count, color: color ?? UIColor(hex: "ffffff"))
 
         return cell
     }
@@ -53,6 +75,13 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedCategory = categories[indexPath.row]
         self.performSegue(withIdentifier: "toMemoListView", sender: nil)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        cellWidth = viewWidth-200
+        cellHeight = 115
+        cellOffset = viewWidth-cellWidth
+        return CGSize(width: cellWidth, height: cellHeight)
     }
     
     func readCategories() -> [Category] {

@@ -24,10 +24,10 @@ class NewCategoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        selected(to: pinkColorButton, for: .selected)
-        selected(to: greenColorButton, for: .selected)
-        selected(to: purpleColorButton, for: .selected)
-        selected(to: lightPurpleColorButton, for: .selected)
+//        selected(to: pinkColorButton, for: .selected)
+//        selected(to: greenColorButton, for: .selected)
+//        selected(to: purpleColorButton, for: .selected)
+//        selected(to: lightPurpleColorButton, for: .selected)
     }
     
     @IBAction func pinkSelected() {
@@ -66,21 +66,32 @@ class NewCategoryViewController: UIViewController {
     @IBAction func save() {
         let category = Category()
         category.title = categoryTextField.text ?? ""
+        setColor(color: categoryColor)
+        
+        createItem(item: category)
+        self.navigationController?.popViewController(animated: true)
+        print("pushed")
     }
     
-    private func selected(to button: UIButton, for: UIControl.State) {
-        var button: UIButton!
-        button.layer.borderColor = CGColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1)
-        button.layer.borderWidth = 1.0
-    }
+//    private func selected(to button: UIButton, for: UIControl.State) {
+//        var button: UIButton!
+//        button.layer.borderColor = CGColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1)
+//        button.layer.borderWidth = 1.0
+//    }
 
     func setColor(color: UIColor?) {
      var colorData: NSData?
-     if let color = categoryColor {
+     if let color = color {
       colorData = NSKeyedArchiver.archivedData(withRootObject: color) as NSData?
      }
         let category = Category()
         category.colorData = colorData! as Data
      }
+    
+    func createItem(item: Category) {
+        try! realm.write {
+            realm.add(item)
+        }
+    }
     
 }
