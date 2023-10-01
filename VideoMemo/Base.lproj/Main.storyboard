@@ -170,9 +170,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="w1i-uG-H0P">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="w1i-uG-H0P">
                                 <rect key="frame" x="0.0" y="94" width="375" height="718"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wEx-Pn-YUv">
                                     <size key="itemSize" width="375" height="132"/>
@@ -195,6 +194,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5o2-Oy-27v"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="w1i-uG-H0P" firstAttribute="leading" secondItem="5o2-Oy-27v" secondAttribute="leading" id="GaA-fV-frG"/>
+                            <constraint firstItem="w1i-uG-H0P" firstAttribute="top" secondItem="5o2-Oy-27v" secondAttribute="top" id="URK-EG-tgJ"/>
+                            <constraint firstItem="w1i-uG-H0P" firstAttribute="trailing" secondItem="5o2-Oy-27v" secondAttribute="trailing" id="flA-Pf-wJn"/>
+                            <constraint firstAttribute="bottom" secondItem="w1i-uG-H0P" secondAttribute="bottom" id="tQF-vf-6kA"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="カテゴリー" id="NWs-Tm-ruX">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Uim-6k-v1t">

@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class CategoryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class CategoryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet var collectionView: UICollectionView!
     
@@ -60,14 +60,9 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         let category: Category = categories[indexPath.row]
         selectedCategory = category
         let count = readItems().count
-        //realmに保存してるdata型をUIcolorに変換する
-        var categoryColorData: NSData? = category.colorData as NSData
-        var color: UIColor?
-        if let colorData = categoryColorData {
-            color = NSKeyedUnarchiver.unarchiveObject(with: colorData as Data) as? UIColor
-        }
+        let color = category.colorData
 
-        cell.setCell(title: category.title, count: count, color: color ?? UIColor(hex: "ffffff"))
+        cell.setCell(title: category.title, count: count, color: color)
 
         return cell
     }
@@ -78,8 +73,8 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        cellWidth = viewWidth-200
-        cellHeight = 115
+        cellWidth = viewWidth-20
+        cellHeight = 80
         cellOffset = viewWidth-cellWidth
         return CGSize(width: cellWidth, height: cellHeight)
     }

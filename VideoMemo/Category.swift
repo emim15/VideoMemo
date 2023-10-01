@@ -10,5 +10,5 @@ import RealmSwift
 
 class Category: Object {
     @Persisted var title: String = ""
-    @Persisted var colorData:Data = Data()
+    @Persisted var colorData: String = ""
 }

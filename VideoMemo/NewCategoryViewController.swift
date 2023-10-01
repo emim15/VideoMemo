@@ -18,22 +18,23 @@ class NewCategoryViewController: UIViewController {
     
     @IBOutlet var buttons: [UIButton] = []
     
-    var categoryColor: UIColor!
+    var categoryColor: String = ""
     
     let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        selected(to: pinkColorButton, for: .selected)
-//        selected(to: greenColorButton, for: .selected)
-//        selected(to: purpleColorButton, for: .selected)
-//        selected(to: lightPurpleColorButton, for: .selected)
+        selected(to: pinkColorButton, for: .selected)
+        selected(to: greenColorButton, for: .selected)
+        selected(to: purpleColorButton, for: .selected)
+        selected(to: lightPurpleColorButton, for: .selected)
     }
     
     @IBAction func pinkSelected() {
         if !pinkColorButton.isSelected {
             buttons.forEach({element in element.isSelected = false})
-            categoryColor = UIColor(hex: "FEB4CB")
+            categoryColor = "FEB4CB"
+            print(categoryColor as Any)
         }
         pinkColorButton.isSelected = !pinkColorButton.isSelected
     }
@@ -41,7 +42,8 @@ class NewCategoryViewController: UIViewController {
     @IBAction func greenSelected() {
         if !greenColorButton.isSelected {
             buttons.forEach({element in element.isSelected = false})
-            categoryColor = UIColor(hex: "A9DEE2")
+            categoryColor = "A9DEE2"
+            print(categoryColor as Any)
         }
         greenColorButton.isSelected = !greenColorButton.isSelected
     }
@@ -49,7 +51,8 @@ class NewCategoryViewController: UIViewController {
     @IBAction func purpleSelected() {
         if !purpleColorButton.isSelected {
             buttons.forEach({element in element.isSelected = false})
-            categoryColor = UIColor(hex: "5C6898")
+            categoryColor = "5C6898"
+            print(categoryColor as Any)
         }
         purpleColorButton.isSelected = !purpleColorButton.isSelected
     }
@@ -57,7 +60,8 @@ class NewCategoryViewController: UIViewController {
     @IBAction func lightPurpleSelected() {
         if !lightPurpleColorButton.isSelected {
             buttons.forEach({element in element.isSelected = false})
-            categoryColor = UIColor(hex: "D1D5FA")
+            categoryColor = "D1D5FA"
+            print(categoryColor as Any)
         }
         lightPurpleColorButton.isSelected = !lightPurpleColorButton.isSelected
         print(categoryColor as Any)
@@ -66,27 +70,18 @@ class NewCategoryViewController: UIViewController {
     @IBAction func save() {
         let category = Category()
         category.title = categoryTextField.text ?? ""
-        setColor(color: categoryColor)
-        
-        createItem(item: category)
+        category.colorData = categoryColor 
+        createItem(item: category)            
+
         self.navigationController?.popViewController(animated: true)
         print("pushed")
     }
     
-//    private func selected(to button: UIButton, for: UIControl.State) {
-//        var button: UIButton!
-//        button.layer.borderColor = CGColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1)
-//        button.layer.borderWidth = 1.0
-//    }
-
-    func setColor(color: UIColor?) {
-     var colorData: NSData?
-     if let color = color {
-      colorData = NSKeyedArchiver.archivedData(withRootObject: color) as NSData?
-     }
-        let category = Category()
-        category.colorData = colorData! as Data
-     }
+    func selected(to button: UIButton, for: UIControl.State) {
+        var button: UIButton!
+        button.layer.borderColor = CGColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1)
+        button.layer.borderWidth = 1.0
+    }
     
     func createItem(item: Category) {
         try! realm.write {
