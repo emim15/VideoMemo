@@ -8,12 +8,17 @@
 import UIKit
 import AVKit
 import AVFoundation
+import RealmSwift
 
 class VideoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var playerView: PlayerView!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet var timeLabel: UILabel!
+    
+    let realm = try! Realm()
+    var items: [MemoItem] = []
+    var category: Category!
     
     var player = AVPlayer()
     var timeObserverToken: Any?
@@ -28,6 +33,8 @@ class VideoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         setupAudioSession()
         setupPlayer()
         slider.value = 0.0
+        
+        navigationItem.title = category.title
     }
     
     //動画選択・表示
@@ -181,6 +188,7 @@ class VideoViewController: UIViewController, UIImagePickerControllerDelegate, UI
             let nextView = segue.destination as! NewMemoViewController
             nextView.image = transferedImage
             nextView.captureTime = transferedCaptureTime
+            nextView.category = self.category
         }
     }
     

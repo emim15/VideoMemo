@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A50EF7DA2AB731A900D50974 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50EF7D92AB731A900D50974 /* AppDelegate.swift */; };
 		A50EF7DC2AB731A900D50974 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50EF7DB2AB731A900D50974 /* SceneDelegate.swift */; };
-		A50EF7DE2AB731A900D50974 /* MemoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50EF7DD2AB731A900D50974 /* MemoListViewController.swift */; };
 		A50EF7E12AB731A900D50974 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A50EF7DF2AB731A900D50974 /* Main.storyboard */; };
 		A50EF7E32AB731AA00D50974 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A50EF7E22AB731AA00D50974 /* Assets.xcassets */; };
 		A50EF7E62AB731AA00D50974 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A50EF7E42AB731AA00D50974 /* LaunchScreen.storyboard */; };
@@ -21,13 +20,19 @@
 		A51AD0B22ABAAB3800175F94 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AD0B12ABAAB3800175F94 /* VideoViewController.swift */; };
 		A51AD0B42ABAC08300175F94 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AD0B32ABAC08300175F94 /* PlayerView.swift */; };
 		A51AD0B62ABBF3E900175F94 /* NewMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AD0B52ABBF3E900175F94 /* NewMemoViewController.swift */; };
+		A51AD0B82AC6C6E500175F94 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AD0B72AC6C6E500175F94 /* Category.swift */; };
+		A51AD0BA2AC6CDA700175F94 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AD0B92AC6CDA700175F94 /* CategoryViewController.swift */; };
+		A51AD0BD2AC6D00100175F94 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AD0BB2AC6D00100175F94 /* CategoryCollectionViewCell.swift */; };
+		A51AD0BE2AC6D00100175F94 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A51AD0BC2AC6D00100175F94 /* CategoryCollectionViewCell.xib */; };
+		A51AD0C02AC6EA7700175F94 /* NewCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AD0BF2AC6EA7700175F94 /* NewCategoryViewController.swift */; };
+		A51AD0C22AC84B2600175F94 /* MemoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AD0C12AC84B2600175F94 /* MemoListViewController.swift */; };
+		A51AD0C42AC8E6B100175F94 /* UIColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AD0C32AC8E6B100175F94 /* UIColorHex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A50EF7D62AB731A900D50974 /* VideoMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50EF7D92AB731A900D50974 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A50EF7DB2AB731A900D50974 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A50EF7DD2AB731A900D50974 /* MemoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListViewController.swift; sourceTree = "<group>"; };
 		A50EF7E02AB731A900D50974 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A50EF7E22AB731AA00D50974 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A50EF7E52AB731AA00D50974 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +43,13 @@
 		A51AD0B12ABAAB3800175F94 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		A51AD0B32ABAC08300175F94 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		A51AD0B52ABBF3E900175F94 /* NewMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemoViewController.swift; sourceTree = "<group>"; };
+		A51AD0B72AC6C6E500175F94 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		A51AD0B92AC6CDA700175F94 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		A51AD0BB2AC6D00100175F94 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		A51AD0BC2AC6D00100175F94 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		A51AD0BF2AC6EA7700175F94 /* NewCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategoryViewController.swift; sourceTree = "<group>"; };
+		A51AD0C12AC84B2600175F94 /* MemoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoListViewController.swift; sourceTree = "<group>"; };
+		A51AD0C32AC8E6B100175F94 /* UIColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHex.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,17 +86,23 @@
 			children = (
 				A50EF7D92AB731A900D50974 /* AppDelegate.swift */,
 				A50EF7DB2AB731A900D50974 /* SceneDelegate.swift */,
-				A50EF7DD2AB731A900D50974 /* MemoListViewController.swift */,
+				A51AD0B92AC6CDA700175F94 /* CategoryViewController.swift */,
 				A51AD0B12ABAAB3800175F94 /* VideoViewController.swift */,
 				A51AD0B52ABBF3E900175F94 /* NewMemoViewController.swift */,
+				A51AD0C12AC84B2600175F94 /* MemoListViewController.swift */,
+				A51AD0BF2AC6EA7700175F94 /* NewCategoryViewController.swift */,
 				A51AD0B32ABAC08300175F94 /* PlayerView.swift */,
 				A50EF7DF2AB731A900D50974 /* Main.storyboard */,
 				A50EF7E22AB731AA00D50974 /* Assets.xcassets */,
 				A50EF7E42AB731AA00D50974 /* LaunchScreen.storyboard */,
 				A50EF7E72AB731AA00D50974 /* Info.plist */,
-				A50EF7F22AB733E100D50974 /* MemoItem.swift */,
 				A50EF7F42AB7B99F00D50974 /* MemoCollectionViewCell.swift */,
 				A50EF7F52AB7B99F00D50974 /* MemoCollectionViewCell.xib */,
+				A51AD0BB2AC6D00100175F94 /* CategoryCollectionViewCell.swift */,
+				A51AD0BC2AC6D00100175F94 /* CategoryCollectionViewCell.xib */,
+				A50EF7F22AB733E100D50974 /* MemoItem.swift */,
+				A51AD0B72AC6C6E500175F94 /* Category.swift */,
+				A51AD0C32AC8E6B100175F94 /* UIColorHex.swift */,
 			);
 			path = VideoMemo;
 			sourceTree = "<group>";
@@ -155,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A50EF7F72AB7B99F00D50974 /* MemoCollectionViewCell.xib in Resources */,
+				A51AD0BE2AC6D00100175F94 /* CategoryCollectionViewCell.xib in Resources */,
 				A50EF7E62AB731AA00D50974 /* LaunchScreen.storyboard in Resources */,
 				A50EF7E32AB731AA00D50974 /* Assets.xcassets in Resources */,
 				A50EF7E12AB731A900D50974 /* Main.storyboard in Resources */,
@@ -168,12 +187,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A51AD0BA2AC6CDA700175F94 /* CategoryViewController.swift in Sources */,
+				A51AD0C02AC6EA7700175F94 /* NewCategoryViewController.swift in Sources */,
 				A50EF7F62AB7B99F00D50974 /* MemoCollectionViewCell.swift in Sources */,
-				A50EF7DE2AB731A900D50974 /* MemoListViewController.swift in Sources */,
 				A51AD0B42ABAC08300175F94 /* PlayerView.swift in Sources */,
 				A51AD0B22ABAAB3800175F94 /* VideoViewController.swift in Sources */,
 				A50EF7DA2AB731A900D50974 /* AppDelegate.swift in Sources */,
+				A51AD0B82AC6C6E500175F94 /* Category.swift in Sources */,
 				A51AD0B62ABBF3E900175F94 /* NewMemoViewController.swift in Sources */,
+				A51AD0C22AC84B2600175F94 /* MemoListViewController.swift in Sources */,
+				A51AD0BD2AC6D00100175F94 /* CategoryCollectionViewCell.swift in Sources */,
+				A51AD0C42AC8E6B100175F94 /* UIColorHex.swift in Sources */,
 				A50EF7F32AB733E100D50974 /* MemoItem.swift in Sources */,
 				A50EF7DC2AB731A900D50974 /* SceneDelegate.swift in Sources */,
 			);

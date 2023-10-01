@@ -6,24 +6,81 @@
 //
 
 import UIKit
+import RealmSwift
 
 class NewCategoryViewController: UIViewController {
-
+    
+    @IBOutlet var categoryTextField: UITextField!
+    @IBOutlet var pinkColorButton: UIButton!
+    @IBOutlet var greenColorButton: UIButton!
+    @IBOutlet var purpleColorButton: UIButton!
+    @IBOutlet var lightPurpleColorButton: UIButton!
+    
+    @IBOutlet var buttons: [UIButton] = []
+    
+    var categoryColor: UIColor!
+    
+    let realm = try! Realm()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        selected(to: pinkColorButton, for: .selected)
+        selected(to: greenColorButton, for: .selected)
+        selected(to: purpleColorButton, for: .selected)
+        selected(to: lightPurpleColorButton, for: .selected)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func pinkSelected() {
+        if !pinkColorButton.isSelected {
+            buttons.forEach({element in element.isSelected = false})
+            categoryColor = UIColor(hex: "FEB4CB")
+        }
+        pinkColorButton.isSelected = !pinkColorButton.isSelected
     }
-    */
+    
+    @IBAction func greenSelected() {
+        if !greenColorButton.isSelected {
+            buttons.forEach({element in element.isSelected = false})
+            categoryColor = UIColor(hex: "A9DEE2")
+        }
+        greenColorButton.isSelected = !greenColorButton.isSelected
+    }
+    
+    @IBAction func purpleSelected() {
+        if !purpleColorButton.isSelected {
+            buttons.forEach({element in element.isSelected = false})
+            categoryColor = UIColor(hex: "5C6898")
+        }
+        purpleColorButton.isSelected = !purpleColorButton.isSelected
+    }
+    
+    @IBAction func lightPurpleSelected() {
+        if !lightPurpleColorButton.isSelected {
+            buttons.forEach({element in element.isSelected = false})
+            categoryColor = UIColor(hex: "D1D5FA")
+        }
+        lightPurpleColorButton.isSelected = !lightPurpleColorButton.isSelected
+        print(categoryColor as Any)
+    }
+    
+    @IBAction func save() {
+        let category = Category()
+        category.title = categoryTextField.text ?? ""
+    }
+    
+    private func selected(to button: UIButton, for: UIControl.State) {
+        var button: UIButton!
+        button.layer.borderColor = CGColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1)
+        button.layer.borderWidth = 1.0
+    }
 
+    func setColor(color: UIColor?) {
+     var colorData: NSData?
+     if let color = categoryColor {
+      colorData = NSKeyedArchiver.archivedData(withRootObject: color) as NSData?
+     }
+        let category = Category()
+        category.colorData = colorData! as Data
+     }
+    
 }

@@ -14,6 +14,7 @@ class NewMemoViewController: UIViewController {
     @IBOutlet var textView: PlaceTextView!
     
     let realm = try! Realm()
+    var category: Category!
     
     var image: UIImage!
     var captureTime: String = ""
@@ -30,6 +31,7 @@ class NewMemoViewController: UIViewController {
         item.memo = textView.text ?? ""
         item.time = captureTime
         item.imageURL = setImage(image: image) ?? ""
+        item.category = category
         createItem(item: item)
         print("pushed")
         self.navigationController?.popToRootViewController(animated: true)

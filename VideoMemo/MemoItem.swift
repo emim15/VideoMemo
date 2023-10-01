@@ -13,7 +13,7 @@ class MemoItem: Object {
     @Persisted var memo: String = ""
     @Persisted var imageURL: String? = nil
     @Persisted var time: String = ""
-    
+    @Persisted var category: Category?
     
     /// 保存したファイル名を使って写真データを検索し、UIImageとして出力する
     /// - ドキュメントディレクトリのURLを取得
